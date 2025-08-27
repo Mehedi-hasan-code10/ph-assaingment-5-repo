@@ -31,6 +31,9 @@ for (let btn of copyButtons) {
 
 
 //  Call button click 
+// const call = document.createComment("i");
+// call.className = "flex items-center gap-2";
+
 const callButtons = document.getElementsByClassName('call-btn');
 for (let btn of callButtons) {
     btn.addEventListener('click', function () {
@@ -38,14 +41,20 @@ for (let btn of callButtons) {
         const name = card.querySelector('.service-name').innerText;
         const number = card.querySelector('.service-number').innerText;
 
+       
+
         if (coins < 20) {
             alert("You don't have enough coins to make a call.");
             return;
         }
 
+
         coins -= 20;
         coinDisplay.innerText = coins;
-        alert(`Calling ${name} ${number}...`);
+
+        
+        alert(`📞 Calling ${name} ${number}...`);
+
 
         const time = new Date().toLocaleTimeString();
 
@@ -53,10 +62,10 @@ for (let btn of callButtons) {
         item.className = "flex items-center justify-between bg-[gray]/10 px-3 py-2 rounded-md shadow-sm";
 
         const left = document.createElement('div');
-        left.className = "flex items-center gap-2";
+        // left.className = "flex items-center gap-2";
 
         const icon = document.createElement('i');
-        // icon.className = "fa-solid fa-phone text-green-600";
+        icon.className = "fa-solid fa-phone text-green-600";
 
         const text = document.createElement('div');
         text.innerHTML = `<p class="font-bold">${name}</p><p class="text-xs text-gray-600">${number}</p>`;
