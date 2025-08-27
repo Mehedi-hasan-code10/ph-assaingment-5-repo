@@ -28,3 +28,55 @@ for (let btn of copyButtons) {
         copyDisplay.innerText = copyCount;
     });
 }
+
+
+//  Call button click 
+const callButtons = document.getElementsByClassName('call-btn');
+for (let btn of callButtons) {
+    btn.addEventListener('click', function () {
+        const card = btn.closest('.card');
+        const name = card.querySelector('.service-name').innerText;
+        const number = card.querySelector('.service-number').innerText;
+
+        if (coins < 20) {
+            alert("You don't have enough coins to make a call.");
+            return;
+        }
+
+        coins -= 20;
+        coinDisplay.innerText = coins;
+        alert(`Calling ${name} ${number}...`);
+
+        const time = new Date().toLocaleTimeString();
+
+        const item = document.createElement('div');
+        item.className = "flex items-center justify-between bg-[gray]/10 px-3 py-2 rounded-md shadow-sm";
+
+        const left = document.createElement('div');
+        left.className = "flex items-center gap-2";
+
+        const icon = document.createElement('i');
+        // icon.className = "fa-solid fa-phone text-green-600";
+
+        const text = document.createElement('div');
+        text.innerHTML = `<p class="font-bold">${name}</p><p class="text-xs text-gray-600">${number}</p>`;
+
+        left.appendChild(icon);
+        left.appendChild(text);
+
+        const timeText = document.createElement('p');
+        timeText.className = "text-xs text-gray-500";
+        timeText.innerText = time;
+
+        item.appendChild(left);
+        item.appendChild(timeText);
+        historyList.prepend(item);
+    });
+}
+
+
+
+//  Clear history section
+clearHistoryBtn.addEventListener('click', function () {
+    historyList.innerHTML = '';
+});
