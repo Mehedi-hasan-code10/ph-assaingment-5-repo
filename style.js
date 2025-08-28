@@ -64,13 +64,13 @@ for (let btn of callButtons) {
         const left = document.createElement('div');
         // left.className = "flex items-center gap-2";
 
-        const icon = document.createElement('i');
-        icon.className = "fa-solid fa-phone text-green-600";
+        // const icon = document.createElement('i');
+        // icon.className = "fa-solid fa-phone text-green-600";
 
         const text = document.createElement('div');
         text.innerHTML = `<p class="font-bold">${name}</p><p class="text-xs text-gray-600">${number}</p>`;
 
-        left.appendChild(icon);
+        // left.appendChild(icon);
         left.appendChild(text);
 
         const timeText = document.createElement('p');
