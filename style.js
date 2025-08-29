@@ -44,7 +44,7 @@ for (let btn of callButtons) {
        
 
         if (coins < 20) {
-            alert("You don't have enough coins to make a call.");
+            alert("❌ You will need 20 coins to make the call.");
             return;
         }
 
@@ -53,13 +53,13 @@ for (let btn of callButtons) {
         coinDisplay.innerText = coins;
 
         
-        alert(`📞 Calling ${name} ${number}...`);
+        alert(`📞 Calling ${name} ${number}....`);
 
 
         const time = new Date().toLocaleTimeString();
 
         const item = document.createElement('div');
-        item.className = "flex items-center justify-between bg-[gray]/10 px-3 py-2 rounded-md shadow-sm";
+        item.className = "flex items-center justify-between bg-[gray]/10 px-3 py-5 rounded-lg shadow-sm";
 
         const left = document.createElement('div');
         // left.className = "flex items-center gap-2";
@@ -68,7 +68,7 @@ for (let btn of callButtons) {
         // icon.className = "fa-solid fa-phone text-green-600";
 
         const text = document.createElement('div');
-        text.innerHTML = `<p class="font-bold">${name}</p><p class="text-xs text-gray-600">${number}</p>`;
+        text.innerHTML = `<p class="font-bold">${name}</p><p class="text-xs text-[#5C5C5C] mt-1">${number}</p>`;
 
         // left.appendChild(icon);
         left.appendChild(text);
